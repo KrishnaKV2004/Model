@@ -80,6 +80,22 @@
         </nav>
     </aside>
 
+    <main class="content">
+        {% if page == "home" %}
+            <h1>Welcome to Home Page</h1>
+            <p>This is the home section.</p>
+        {% elif page == "model" %}
+            <h1>Model Page</h1>
+            <p>Upload and analyze your model here.</p>
+        {% elif page == "about" %}
+            <h1>About Us</h1>
+            <p>Learn more about the project.</p>
+        {% elif page == "help" %}
+            <h1>Help Center</h1>
+            <p>Find FAQs and support information.</p>
+        {% endif %}
+    </main>
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
