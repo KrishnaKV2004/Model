@@ -16,10 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Get the current URL path
+    const currentPath = window.location.pathname;
+
     // Restore active link state on page load
-    const activeNav = localStorage.getItem("activeNav") || "{{ url_for('home') }}"; // Default to Home
     navLinks.forEach(link => {
-        if (link.getAttribute("href") === activeNav) {
+        if (link.getAttribute("href") === currentPath) {
             link.classList.add("active");
         } else {
             link.classList.remove("active", "default-active");
@@ -40,6 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropbox = document.getElementById("dropbox");
     const fileInput = document.getElementById("fileInput");
     const fileNameDisplay = document.getElementById("fileName");
+
+    if (!dropbox || !fileInput || !fileNameDisplay) return;
 
     // Handle file selection via input
     fileInput.addEventListener("change", (event) => {
@@ -77,15 +81,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-const predictButton = document.getElementById("predictButton");
-const predictionMessage = document.getElementById("predictionMessage");
+document.addEventListener("DOMContentLoaded", () => {
+    const predictButton = document.getElementById("predictButton");
+    const predictionMessage = document.getElementById("predictionMessage");
 
-predictButton.addEventListener("click", () => {
-    predictionMessage.textContent = "Prediction in progress... ⏳";
-    predictionMessage.style.color = "#005ECF";
+    if (!predictButton || !predictionMessage) return;
 
-    setTimeout(() => {
-        predictionMessage.textContent = "Prediction Complete ✅";
-        predictionMessage.style.color = "green";
-    }, 2000);
+    predictButton.addEventListener("click", () => {
+        predictionMessage.textContent = "Prediction in progress... ⏳";
+        predictionMessage.style.color = "#005ECF";
+
+        setTimeout(() => {
+            predictionMessage.textContent = "Prediction Complete ✅";
+            predictionMessage.style.color = "green";
+        }, 2000);
+    });
 });
