@@ -61,7 +61,7 @@
 
             <ul class="nav-list secondary-nav">
                 <li class="nav-items">
-                    <a href="#" class="nav-link">
+                    <a href="{{ url_for('profile') }}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">
                             account_circle
                         </span>
@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-items">
-                    <a href="#" class="nav-link">
+                    <a href="{{ url_for('logout') }}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">
                             logout
                         </span>
@@ -321,6 +321,168 @@
                 text-decoration: underline;
                 color: #0056b3;
             }
+            </style>
+
+        {% elif page=="profile" %}
+
+            <div id="profile" class="section">
+                <h2>Profile</h2>
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-pic-container">
+                            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Profile Picture" class="profile-pic">
+                            <div class="status-indicator"></div>
+                        </div>
+                        <div class="profile-details">
+                            <h3>Krishna Verma</h3>
+                            <p class="email">Email: krishnaverma.0227@gmail.com</p>
+                            <p class="location">Location: India</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-tabs">
+                        <div class="tab" id="personal-info-tab">
+                            <h4>Personal Information</h4>
+                            <br>
+                            <p>Age : 21</p>
+                            <p>Gender : Male</p>
+                            <p>Joined : February 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                /* Profile Section */
+                #profile {
+                    padding: 50px 20px;
+                    background-color: #f9f9f9;
+                    border-radius: 25px;
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+                    margin-top: 30px;
+                    border: 1px solid #ccc;
+                    transform: translateY(40px);
+                }
+
+                #profile h2 {
+                    text-align: center;
+                    font-size: 2rem;
+                    color: #333;
+                    margin-bottom: 30px;
+                    font-weight: bold;
+                    letter-spacing: 2px;
+                }
+
+                /* Profile Container */
+                .profile-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                /* Profile Header */
+                .profile-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-bottom: 30px;
+                }
+
+                /* Profile Picture */
+                .profile-pic-container {
+                    position: relative;
+                    width: 125px;
+                    height: 125px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    transform: translateX(50px);
+                }
+
+                .profile-pic {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .status-indicator {
+                    position: absolute;
+                    right: 10px;
+                    bottom: 10px;
+                    width: 20px;
+                    height: 20px;
+                    background-color: #4CAF50;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                }
+
+                /* Profile Details */
+                .profile-details {
+                    flex-grow: 1;
+                    margin-left: 20px;
+                }
+
+                .profile-details h3 {
+                    font-size: 1.6rem;
+                    color: #333;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    transform: translateX(60px);
+                }
+
+                .profile-details .email, .profile-details .location {
+                    color: #555;
+                    font-size: 1.1rem;
+                    margin-bottom: 5px;
+                    transform: translateX(60px);
+                }
+
+                /* Profile Tabs */
+                .profile-tabs {
+                    width: 100%;
+                    margin-top: 40px;
+                }
+
+                /* Tab Styling */
+                .tab {
+                    background-color: white;
+                    padding: 20px;
+                    border-radius: 25px;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                    text-align: center;
+                }
+
+                .tab:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+                }
+
+                /* Tab Title */
+                .tab h4 {
+                    font-size: 1.3rem;
+                    margin-bottom: 10px;
+                    color: #555;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                }
+
+                /* Tab Content */
+                .tab p {
+                    font-size: 1rem;
+                    color: #555;
+                    line-height: 1.5;
+                    margin-top: 5px;
+                }
+
+                /* Adding some spacing to each tab */
+                .profile-tabs .tab:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+
             </style>
 
         {% endif %}

@@ -33,6 +33,14 @@ def about():
 def help():
     return render_template("home.html", page="help")
 
+@app.route('/profile')
+def profile():
+    return render_template("home.html", page="profile")
+
+@app.route('/logout')
+def logout():
+    return render_template("home.html", page="logout")
+
 @app.route('/predict', methods=['POST'])
 def predict():
 
