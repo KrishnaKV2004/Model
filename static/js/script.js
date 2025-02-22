@@ -76,3 +76,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+const predictButton = document.getElementById("predictButton");
+const predictionMessage = document.getElementById("predictionMessage");
+
+predictButton.addEventListener("click", () => {
+    predictionMessage.textContent = "Prediction in progress... ⏳";
+    predictionMessage.style.color = "#005ECF";
+
+    setTimeout(() => {
+        predictionMessage.textContent = "Prediction Complete ✅";
+        predictionMessage.style.color = "green";
+    }, 2000);
+});
