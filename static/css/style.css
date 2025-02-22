@@ -149,3 +149,75 @@ body
 {
     margin-left: 90px;
 }
+
+.upload-wrapper
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    transform: translateY(-75px);
+}
+
+.upload-container
+{
+    width: 450px;
+}
+
+.dropbox
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 220px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dropbox:hover, .dropbox.dragover
+{
+    background: var(--bg-dark);
+    border-color: #005ECF;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.upload-icon
+{
+    font-size: 60px;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.dropbox:hover .upload-icon
+{
+    transform: scale(1.1);
+}
+
+.upload-text
+{
+    font-size: 18px;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+
+.browse-text
+{
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.file-name
+{
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
