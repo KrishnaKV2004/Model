@@ -1,10 +1,16 @@
-from flask import Flask, request, jsonify, render_template
-import tensorflow as tf
+import io
+import os
 import numpy as np
 from PIL import Image
-import io
+import tensorflow as tf
+from dotenv import load_dotenv
+from flask import Flask, request, jsonify, render_template, redirect, session, url_for
 
 app = Flask(__name__)
+
+load_dotenv()
+
+app.secret_key = os.getenv('FLASK_SECRET_KEY', 'default_fallback_key')
 
 # Load the trained model once at startup
 tumor_model = tf.keras.models.load_model("brain-tumor.keras")
@@ -16,6 +22,9 @@ def preprocess_image(image):
     img = np.array(img) / 255.0     # Normalize pixel values
     img = np.expand_dims(img, axis=0)  # Add batch dimension
     return img
+
+USERNAME = "Krishna2004"
+PASSWORD = "KrishnaBT"
 
 @app.route('/')
 def home():
@@ -37,9 +46,26 @@ def help():
 def profile():
     return render_template("home.html", page="profile")
 
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        if username == USERNAME and password == PASSWORD:
+            session['username'] = username
+            return redirect(url_for('home'))
+        else:
+            error = "Invalid username or password!"
+            return render_template("login.html", error=error)
+    
+    return render_template("login.html")
+
 @app.route('/logout')
 def logout():
-    return render_template("home.html", page="logout")
+    session.pop('username', None)
+    return redirect(url_for('login'))
 
 @app.route('/predict', methods=['POST'])
 def predict():
