@@ -96,6 +96,61 @@
                 <a href="{{ url_for('about') }}" class="learn-btn">Learn More</a>
             </div>
 
+            <style>
+                .home-content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    text-align: center;
+                }
+                .home-container {
+                    background: white;
+                    padding: 30px;
+                    border-radius: 20px;
+                    max-width: 600px;
+                    margin: auto;
+                    transform: translateY(60px);
+                    border: 1px solid #9d9d9d;
+                }
+                .home-container:hover {
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                }
+                .profile-pic {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    margin-bottom: 15px;
+                }
+                .intro-text {
+                    font-size: 18px;
+                    color: #444;
+                    margin-bottom: 10px;
+                }
+                .upl-btn {
+                    display: inline-block;
+                    background-color: black;
+                    color: white;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    border-radius: 20px;
+                    margin-top: 10px;
+                }
+                .upl-btn:hover {
+                    background-color: #007BFF;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                }
+                .learn-btn {
+                    display: inline-block;
+                    color: rgb(86, 86, 86);
+                    transform: translateX(250px);
+                    text-decoration: none;
+                }
+                .learn-btn:hover {
+                    color: #007BFF;
+                }
+            </style>
+
         {% elif page == "model" %}
 
             <h1>Model</h1>
@@ -121,47 +176,40 @@
             </div>            
             
         {% elif page == "about" %}
-            <h1>About Us</h1>
-            <p>Learn more about the Project !</p>
-        {% elif page == "help" %}
-            <h1>Help Center</h1>
-            <p>Find FAQs and Support Information !</p>
-        {% endif %}
-    </main>
-
-    {% if page == "home" %}
+            
+        <div class="about-container">
+            <h1>About</h1>
+            <br>
+            <br>
+            <p class="about-text">This project is an AI-powered application that helps in detecting brain tumors from MRI scans.</p>
+            <p class="about-text">By leveraging deep learning models, we aim to provide accurate and reliable predictions that assist doctors in early diagnosis.</p>
+            <p class="about-text">Our model is trained on a diverse dataset, ensuring high precision in classification across different tumor types.</p>
+            <p class="about-text">We are committed to making healthcare more accessible through AI-driven solutions.</p>
+            <br>
+            <a href="{{ url_for('model') }}" class="start-btn">Try Now</a>
+        </div>
+    
         <style>
-            .home-content {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                text-align: center;
-            }
-            .home-container {
+            .about-container {
                 background: white;
                 padding: 30px;
                 border-radius: 20px;
-                max-width: 600px;
+                max-width: 750px;
                 margin: auto;
                 transform: translateY(60px);
                 border: 1px solid #9d9d9d;
+                text-align: center;
+                transform: translateY(100px);
             }
-            .home-container:hover {
+            .about-container:hover {
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             }
-            .profile-pic {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                margin-bottom: 15px;
-            }
-            .intro-text {
+            .about-text {
                 font-size: 18px;
                 color: #444;
                 margin-bottom: 10px;
             }
-            .upl-btn {
+            .start-btn {
                 display: inline-block;
                 background-color: black;
                 color: white;
@@ -170,21 +218,17 @@
                 border-radius: 20px;
                 margin-top: 10px;
             }
-            .upl-btn:hover {
+            .start-btn:hover {
                 background-color: #007BFF;
                 box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             }
-            .learn-btn {
-                display: inline-block;
-                color: rgb(86, 86, 86);
-                transform: translateX(250px);
-                text-decoration: none;
-            }
-            .learn-btn:hover {
-                color: #007BFF;
-            }
         </style>
-    {% endif %}
+
+        {% elif page == "help" %}
+            <h1>Help Center</h1>
+            <p>Find FAQs and Support Information !</p>
+        {% endif %}
+    </main>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
