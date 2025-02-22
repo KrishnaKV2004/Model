@@ -16,23 +16,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Active Navigation Link Highlighting
+    // Restore active link state on page load
+    const activeNav = localStorage.getItem("activeNav") || "{{ url_for('home') }}"; // Default to Home
     navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.forEach(l => l.classList.remove("active", "default-active"));
-
+        if (link.getAttribute("href") === activeNav) {
             link.classList.add("active");
-            localStorage.setItem("activeNav", link.href);
-        });
+        } else {
+            link.classList.remove("active", "default-active");
+        }
     });
 
-    // Restore active link state on page load
-    const activeNav = localStorage.getItem("activeNav");
-    if (activeNav) {
-        navLinks.forEach(link => {
-            if (link.href === activeNav) {
-                link.classList.add("active");
-            }
+    // Active Navigation Link Highlighting on click
+    navLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            navLinks.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+            localStorage.setItem("activeNav", link.getAttribute("href"));
         });
-    }
+    });
 });
