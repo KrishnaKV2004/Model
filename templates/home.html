@@ -89,8 +89,8 @@
                 <br>
                 <h1>Brain Tumor Detection</h1>
                 <br>
-                <p class="intro-text">This AI-powered model assists in detecting brain tumors by analyzing MRI scans. It leverages deep learning techniques to provide accurate and efficient predictions.</p>
-                <p class="intro-text">Upload an MRI scan, and the model will classify the presence of a tumor, helping in early diagnosis and medical intervention.</p>
+                <p class="intro-text">🧠 This <strong>AI-Powered Model</strong> assists in detecting brain tumors by analyzing MRI scans. 🔍 It leverages deep learning techniques to provide accurate and efficient predictions. ⚡</p>
+                <p class="intro-text">📤 Upload an <strong>MRI Scan</strong>, and the model will 🏥 classify the presence of a tumor, helping in early diagnosis and medical intervention. ⏳</p>
                 <br>
                 <a href="{{ url_for('model') }}" class="upl-btn">Upload MRI Scan</a>
                 <a href="{{ url_for('about') }}" class="learn-btn">Learn More</a>
@@ -144,7 +144,7 @@
                 }
                 .learn-btn {
                     display: inline-block;
-                    color: rgb(86, 86, 86);
+                    color: rgb(59, 59, 59);
                     transform: translateX(455px);
                     text-decoration: none;
                     transition: 0.4s ease;
@@ -188,7 +188,6 @@
             <p class="about-text">🧠 This project is an AI-powered application designed to detect brain tumors from MRI scans with high accuracy.</p>  
             <p class="about-text">📊 The model has been trained on a dataset consisting of four classes: <strong>Glioma, Meningioma, Pituitary, and Normal</strong>. Each class contains approximately <strong>1,000 MRI images</strong>, ensuring robust learning and generalization across different tumor types.</p>  
             <p class="about-text">🎯 With an overall accuracy of around <strong>96%</strong>, our model effectively differentiates between these categories, making it a valuable tool for medical professionals.</p>  
-            <p class="about-text">🚀 This AI-driven approach aims to enhance the accessibility of early tumor detection, reduce diagnostic errors, and support medical practitioners with fast and efficient tumor classification.</p>  
             <br>
             <a href="{{ url_for('model') }}" class="start-btn">Try Now</a>
         </div>
@@ -198,12 +197,12 @@
                 background: white;
                 padding: 30px;
                 border-radius: 20px;
-                max-width: 870px;
+                max-width: 820px;
                 margin: auto;
                 transform: translateY(60px);
                 border: 1px solid #9d9d9d;
                 text-align: center;
-                transform: translateY(65px);
+                transform: translateY(100px);
             }
             .about-container:hover {
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -229,8 +228,100 @@
         </style>
 
         {% elif page == "help" %}
-            <h1>Help Center</h1>
-            <p>Find FAQs and Support Information !</p>
+
+            <div class="help-container">
+                <h1 class="help-title">Need Help? 🤔</h1>
+                <p class="help-subtitle">Find Answers and Ways to Contact Me !</p>
+                <br>            
+                <div class="help-card">
+                    <h2>📞 Contact Me</h2>
+                    <p>Feel free to reach out for any queries or collaborations!</p>
+                    <ul class="contact-list">
+                        <li>📧 Email : <a href="mailto:krishnaverma.0227@gmail.com">krishnaverma.0227@gmail.com</a></li>
+                        <li>🌍 Website : <a href="#">github.com/KrishnaKV2004</a></li>
+                        <li>📍 Location : UttarPradesh, India</li>
+                    </ul>
+                </div>
+            
+                <div class="help-card">
+                    <h2>🔗 Connect with Me</h2>
+                    <p>Find me on these platforms:</p>
+                    <ul class="social-links">
+                        <li>🐙 GitHub : <a href="https://github.com/KrishnaKV2004" target="_blank">github.com/KrishnaKV2004</a></li>
+                        <li>🐦 Twitter : <a href="https://twitter.com/yourtwitter" target="_blank">x.com/KrishnaV0227</a></li>
+                        <li>💼 LinkedIn : <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/krishna0227/</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <style>
+            .help-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 40px;
+            }
+            
+            .help-title {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: black;
+                text-shadow: 2px 2px 10px rgba(196, 196, 196, 0.305);
+            }
+            
+            .help-subtitle {
+                font-size: 1.2rem;
+                color: #555;
+                margin-bottom: 20px;
+            }
+            
+            .help-card {
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                border-radius: 15px;
+                margin: 20px 0;
+                width: 60%;
+                text-align: left;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .help-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+                border: 1px solid #ccc; 
+            }
+            
+            .help-card h2 {
+                color: #333;
+                margin-bottom: 10px;
+            }
+            
+            .contact-list, .social-links {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .contact-list li, .social-links li {
+                font-size: 1rem;
+                margin: 5px 0;
+            }
+            
+            a {
+                text-decoration: none;
+                color: #007BFF;
+                font-weight: bold;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+                color: #0056b3;
+            }
+            </style>
+
         {% endif %}
     </main>
 
