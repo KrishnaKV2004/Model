@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    background: #C9CCD3;
+    background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
+    background-blend-mode: lighten;
+}
+
+.sidebar
+{
+    width: 270px;
+    height: 100vh;
+    position: relative;
+    background: black;
+}
+
+.logo
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    left: 24px;
+}
+
+.profile-name
+{
+    color: white;
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: normal;
+    position: relative;
+    top: 64px;
+    left: 95px;
+}
+
+.sidebar-nav .nav-items
+{
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    display: flex;
+    gap: 18px;
+    flex-direction: column;
+    align-items: left;
+    transform: translate(50px, 150px);
+    }
+
+.sidebar-nav .link
+{
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-nav .link:visited
+{
+    color: white;
+    text-decoration: none;
+}
+
+.link.def-act
+{
+    color: black;
+    background-color: white;
+    border-radius: 40px;
+}
