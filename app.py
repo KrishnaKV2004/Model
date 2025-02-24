@@ -46,18 +46,20 @@ def help():
 def profile():
     return render_template("home.html", page="profile")
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         
         if username == USERNAME and password == PASSWORD:
             session['username'] = username
+            session.permanent = True  # Make the session permanent
+            session.modified = True  # Force the session to be saved
             return redirect(url_for('home'))
         else:
-            error = "Invalid username or password!"
+            error = "Invalid Username or Password !"
             return render_template("login.html", error=error)
     
     return render_template("login.html")
